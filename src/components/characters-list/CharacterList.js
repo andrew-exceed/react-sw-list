@@ -25,7 +25,7 @@ const CharactersList = ({
     
     React.useEffect(() => {
         getCharactersList(1);
-    },[]);
+    },[getCharactersList]);
 
     // состояние модалки
     const handleOpen  = () => {

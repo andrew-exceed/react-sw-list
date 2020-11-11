@@ -6,7 +6,7 @@ const NotFounPage = () => {
     let history = useHistory();
     React.useEffect(() => {
         history.push("/404");
-    },[]);
+    },[history]);
     return (
         <div>
             <h1>404 - Not Found!</h1>
