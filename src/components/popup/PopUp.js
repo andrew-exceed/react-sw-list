@@ -20,8 +20,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         maxWidth: '400px',
-        // minWidth: '300px',
-        margin: '0 auto'
+        margin: '0 auto',
     },
         paper: {
         backgroundColor: theme.palette.background.paper,

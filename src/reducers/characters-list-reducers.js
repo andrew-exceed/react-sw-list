@@ -49,12 +49,13 @@ export default function charactersListReducer(state = initialState, actions){
                 ...state,
                 characterData: actions.payload,
                 loadingPopUp: false,
+                errorPopUp: false,
             }
         case 'GET_CHARACTER_INFO_FAILURE':
             return{
                 ...state,
                 loadingPopUp: false,
-                error: actions.payload,
+                errorPopUp: actions.payload,
             }
 
         default:

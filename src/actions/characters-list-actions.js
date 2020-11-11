@@ -28,8 +28,6 @@ const getCharactersPageFailure = error => ({
     payload: error,
 });
 
-// !!!!!!!!!!!!!!!
-
 export const getCharacterInfo = (url) => {
     return dispatch => {
         dispatch(getCharacterInfoStarted());
