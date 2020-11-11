@@ -25,10 +25,7 @@ export default function charactersListReducer(state = initialState, actions){
                 ...state,
                 loading: true,
                 error: false,
-                charactersListInfo:{
-                    count: 10,
-                    results:[],
-                },
+
             }
         case 'GET_CHARACTERS_LIST_FAILURE':
             return{

@@ -34,7 +34,6 @@ const CharactersList = ({
     const changeModalInfo = (url) =>{
         getCharacterInfo(url);
         handleOpen();
-        console.log(characterData)
     }
     const handleClose = () => {
         setOpen(false);
@@ -82,7 +81,7 @@ const CharactersList = ({
     return (
         <Grid container spacing={2}>
             {loading && !error && PlugCard}
-            {List}
+            {!loading && List}
 
             <Grid item container xs={12}>
                 <div className='pag'>

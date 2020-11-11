@@ -9,10 +9,10 @@ import Paper from '@material-ui/core/Paper';
 
 
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -75,7 +75,7 @@ const TransitionsModal = ({open, isLoading, data, closePopUp}) => {
                                     День рождения - {data.birth_year}
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    {data.homeworld}
+                                    <Link to={`/planets/${data.homeworld && data.homeworld.slice(-2, -1)}`}>{data.homeworld}</Link>
                                 </Typography>
                             </CardContent>
                         </Card>

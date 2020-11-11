@@ -1,6 +1,8 @@
 import actions from '../constants/actions-type'
 import { getCharactersPage, getCharacterInfoService } from '../api/characters-list-service'
 
+
+//все таймауты я оставил пока что себе для проверок
 export const getCharactersList = (pageNumber) => {
     return dispatch => {
         dispatch(getCharactersPageStarted());
