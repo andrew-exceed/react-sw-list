@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     root: {
         backgroundColor: '#edf2f1'
     },
-});
+}); 
 
 const CharacterCard = ({openPopUp, url, name}) => {
     const classes = useStyles();

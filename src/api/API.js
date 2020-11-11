@@ -4,3 +4,5 @@ export default axios.create({
     baseURL: "https://swapi.dev/api/people/",
     responseType: "json"
 });
+
+

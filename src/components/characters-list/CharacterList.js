@@ -23,6 +23,8 @@ const CharactersList = ({
 }) => {
     const [isOpen, setOpen] = React.useState(false);
     
+
+    // TODO переделать импорты нормально
     React.useEffect(() => {
         getCharactersList(1);
     },[getCharactersList]);
@@ -41,6 +43,8 @@ const CharactersList = ({
 
     // пилим пагинаци
     // работает, если апи будет выдавать по 10 штук и дальше
+
+    //TODO сделать пагинацию в зависимости от количества персонажs
     let pagCount = 9;
     // if(charactersListInfo.count){
     //     pagCount = Math.ceil(+charactersListInfo.count / 10);
