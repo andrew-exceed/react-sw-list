@@ -21,34 +21,25 @@ const CharactersList = ({
     loadingPopUp,
     errorPopUp,
 }) => {
-    const [isOpen, setOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = React.useState(false);
     
 
-    // TODO переделать импорты нормально
     React.useEffect(() => {
         getCharactersList(1);
     },[getCharactersList]);
 
     // состояние модалки
-    const handleOpen  = () => {
-        setOpen(true);
-    }
     const changeModalInfo = (url) =>{
         getCharacterInfo(url);
-        handleOpen();
+        handleModalShow();
     }
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const handleModalShow = () => {
+        setIsOpen(!isOpen)
+    }
 
     // пилим пагинаци
     // работает, если апи будет выдавать по 10 штук и дальше
-
-    //TODO сделать пагинацию в зависимости от количества персонажs
     let pagCount = 9;
-    // if(charactersListInfo.count){
-    //     pagCount = Math.ceil(+charactersListInfo.count / 10);
-    // }
     const toPage = (number) => {
         getCharactersList(number);
     }
@@ -69,13 +60,14 @@ const CharactersList = ({
 
     // карточка с персонажем
     const List = charactersListInfo.results.map((data, i) => {
+        let {url, name} = data;
         return (
             <React.Fragment key={i} >
                 <Grid item xs={12} sm={6} md={3}>
                     <CharacterCard
                         openPopUp={changeModalInfo}
-                        url={data.url}
-                        name={data.name}
+                        url={url}
+                        name={name}
                     />
                 </Grid>
             </React.Fragment>
@@ -97,7 +89,7 @@ const CharactersList = ({
                 isLoading={loadingPopUp}
                 open={isOpen}
                 data={characterData}
-                closePopUp={handleClose}
+                closePopUp={handleModalShow}
             />
             
         </Grid>

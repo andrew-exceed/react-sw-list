@@ -1,6 +1,6 @@
 import actions from '../constants/actions-type'
-import { getCharactersPage, getCharacterInfoService } from '../api/characters-list-service'
-
+import api from '../api/index'
+const { getCharactersPage, getCharacterInfoService } = api
 
 //все таймауты я оставил пока что себе для проверок
 export const getCharactersList = (pageNumber) => {
@@ -29,6 +29,7 @@ const getCharactersPageFailure = error => ({
     type: actions.GET_CHARACTERS_LIST_FAILURE,
     payload: error,
 });
+
 
 export const getCharacterInfo = (url) => {
     return dispatch => {

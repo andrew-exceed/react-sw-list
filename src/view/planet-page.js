@@ -13,9 +13,9 @@ const PlanetPage = () => {
     const [planetImage, setPlanetImage] = useState();
     let history = useHistory();
 
-    
-    useEffect(() => {
+    let {name, climate, gravity, surface_water, population, terrain} = planetData;
 
+    useEffect(() => {
         //TODO Это все вынесу отдлельно в запросы и редакс, для быстроты все пока писал тут
         // а еще тут нет визуализации загрузки никакой
         fetch(`https://swapi.dev/api/planets/${id}/`)
@@ -34,30 +34,25 @@ const PlanetPage = () => {
                     console.log(data)
                     data.items && data.items[0] && setPlanetImage(data.items[0].link)
                 });
-
                 data.detail && data.detail === 'Not found' && history.push("/404");
             });
-
-
-
-
     },[history, id]);
 
     return (
         <>  
             <div className="myImg">
                 {planetImage ? 
-                <img src={planetImage}/>
+                <img src={planetImage} alt={name} />
                 :
                 <div className='error'>Ждем картинку...,<br />ну или закончились запросы к гуглу</div>
                 }
             </div>
-            <Typography variant='h2'>{planetData && planetData.name}</Typography>
-            <Typography variant='subtitle1'>Климат - {planetData && planetData.climate}</Typography>
-            <Typography variant='subtitle1'>Гравитация - {planetData && planetData.gravity}</Typography>
-            <Typography variant='subtitle1'>Уровнь Воды - {planetData && planetData.surface_water}</Typography>
-            <Typography variant='subtitle1'>Популяция - {planetData && planetData.population}</Typography>
-            <Typography variant='subtitle1'>Поверхность - {planetData && planetData.terrain}</Typography>
+            <Typography variant='h2'>{name}</Typography>
+            <Typography variant='subtitle1'>Климат - {climate}</Typography>
+            <Typography variant='subtitle1'>Гравитация - {gravity}</Typography>
+            <Typography variant='subtitle1'>Уровнь Воды - {surface_water}</Typography>
+            <Typography variant='subtitle1'>Популяция - {population}</Typography>
+            <Typography variant='subtitle1'>Поверхность - {terrain}</Typography>
         </>
     );
 }

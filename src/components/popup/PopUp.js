@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
 const TransitionsModal = ({open, isLoading, data, closePopUp}) => {
     const classes = useStyles();
 
+    let{ name, gender, height, mass, birth_year, homeworld } = data;
+
     return (
         <div>
             <Modal
@@ -53,29 +55,29 @@ const TransitionsModal = ({open, isLoading, data, closePopUp}) => {
                         <Card variant="outlined">
                             <CardMedia
                                 component="img"
-                                alt={data.name}
+                                alt={name}
                                 height="300"
-                                image={`/img-characters/${data.name && data.name.split(' ').join('')}.jpg`}
-                                title={data.name}
+                                image={`/img-characters/${name && name.split(' ').join('')}.jpg`}
+                                title={name}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h3" component="h2">
-                                    {data.name}
+                                    {name}
                                 </Typography>
                                 <Typography  variant="subtitle1">
-                                    пол - {data.gender}
+                                    пол - {gender}
                                 </Typography>
                                 <Typography  variant="subtitle1" >
-                                    Рост - {data.height}
+                                    Рост - {height}
                                 </Typography>
                                 <Typography  variant="subtitle1" >
-                                    Масса - {data.mass}
+                                    Масса - {mass}
                                 </Typography>
                                 <Typography  variant="subtitle1" >
-                                    День рождения - {data.birth_year}
+                                    День рождения - {birth_year}
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    <Link to={`/planets/${data.homeworld && data.homeworld.slice(-2, -1)}`}>{data.homeworld}</Link>
+                                    <Link to={`/planets/${homeworld && homeworld.slice(-2, -1)}`}>{homeworld}</Link>
                                 </Typography>
                             </CardContent>
                         </Card>

@@ -14,7 +14,7 @@ const App = () => {
     <Router >
       <NavMenu />
       <div className='root'>
-        <Paper elevation={3} >
+        <Paper elevation={3} className='myPapper'>
           <Switch>
 
             <Route  exact path="/">
